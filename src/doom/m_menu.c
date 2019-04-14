@@ -300,6 +300,7 @@ enum
     hurtme,
     violence,
     nightmare,
+    gitgud,
     newg_end
 } newgame_e;
 
@@ -309,7 +310,8 @@ menuitem_t NewGameMenu[]=
     {1,"M_ROUGH",	M_ChooseSkill, 'h'},
     {1,"M_HURT",	M_ChooseSkill, 'h'},
     {1,"M_ULTRA",	M_ChooseSkill, 'u'},
-    {1,"M_NMARE",	M_ChooseSkill, 'n'}
+    {1,"M_NMARE",	M_ChooseSkill, 'n'},
+    {1,"STFGOD0",	M_ChooseSkill, 'n'}
 };
 
 menu_t  NewDef =
@@ -906,6 +908,7 @@ void M_NewGame(int choice)
 //      M_Episode
 //
 int     epi;
+int     skill;
 
 void M_DrawEpisode(void)
 {
@@ -917,15 +920,16 @@ void M_VerifyNightmare(int key)
     if (key != key_menu_confirm)
 	return;
 		
-    G_DeferedInitNew(nightmare,epi+1,1);
+    G_DeferedInitNew(skill,epi+1,1);
     M_ClearMenus ();
 }
 
 void M_ChooseSkill(int choice)
 {
-    if (choice == nightmare)
+    if (choice < gitgud)
     {
-	M_StartMessage(DEH_String(NIGHTMARE),M_VerifyNightmare,true);
+        skill = choice;
+	M_StartMessage(DEH_String(GIT_GUD),M_VerifyNightmare,false);
 	return;
     }
 	

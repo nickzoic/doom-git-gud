@@ -1781,8 +1781,8 @@ G_InitNew
     }
     */
 
-    if (skill > sk_nightmare)
-	skill = sk_nightmare;
+    if (skill > sk_gitgud)
+	skill = sk_gitgud;
 
     if (gameversion >= exe_ultimate)
     {
@@ -1817,12 +1817,12 @@ G_InitNew
 
     M_ClearRandom ();
 
-    if (skill == sk_nightmare || respawnparm )
+    if (skill >= sk_nightmare || respawnparm )
 	respawnmonsters = true;
     else
 	respawnmonsters = false;
 
-    if (fastparm || (skill == sk_nightmare && gameskill != sk_nightmare) )
+    if (fastparm || (skill >= sk_nightmare && gameskill <= sk_nightmare) )
     {
 	for (i=S_SARG_RUN1 ; i<=S_SARG_PAIN2 ; i++)
 	    states[i].tics >>= 1;
@@ -1830,7 +1830,7 @@ G_InitNew
 	mobjinfo[MT_HEADSHOT].speed = 20*FRACUNIT;
 	mobjinfo[MT_TROOPSHOT].speed = 20*FRACUNIT;
     }
-    else if (skill != sk_nightmare && gameskill == sk_nightmare)
+    else if (skill <= sk_nightmare && gameskill >= sk_nightmare)
     {
 	for (i=S_SARG_RUN1 ; i<=S_SARG_PAIN2 ; i++)
 	    states[i].tics <<= 1;

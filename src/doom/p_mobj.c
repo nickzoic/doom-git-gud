@@ -538,7 +538,7 @@ P_SpawnMobj
     mobj->flags = info->flags;
     mobj->health = info->spawnhealth;
 
-    if (gameskill != sk_nightmare)
+    if (gameskill < sk_nightmare)
 	mobj->reactiontime = info->reactiontime;
     
     mobj->lastlook = P_Random () % MAXPLAYERS;
@@ -801,7 +801,7 @@ void P_SpawnMapThing (mapthing_t* mthing)
 		
     if (gameskill == sk_baby)
 	bit = 1;
-    else if (gameskill == sk_nightmare)
+    else if (gameskill >= sk_nightmare)
 	bit = 4;
     else
 	bit = 1<<(gameskill-1);

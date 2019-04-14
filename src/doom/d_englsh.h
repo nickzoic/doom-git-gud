@@ -47,6 +47,14 @@
 "you can't start a new game\n"\
 "while in a network game.\n\n"PRESSKEY
 
+#define GIT_GUD \
+"You're cheating not only\n"\
+"the game, but yourself.\n"\
+"You won't grow.\n"\
+"You won't improve.\n"\
+"It's sad that you don't\n"\
+"know the difference.\n"PRESSKEY
+
 #define NIGHTMARE	\
 "are you sure? this skill level\n"\
 "isn't even remotely fair.\n\n"PRESSYN
